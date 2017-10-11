@@ -19,7 +19,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'รูปภาพ'
+				'text' => 'ระบบกำลังแปลงภาพเป็นข้อความ ผลลัพธ์ที่ได้จะถูกส่งกลับทาง LINE ในอีก 2-3 นาทีหลังจากนี้ กรุณารอสักครู่...'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
@@ -49,7 +49,7 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'ข้อความ'
+				'text' => 'กรุณาอัพโหลดไฟล์เอกสารภาพที่ต้องการทำ OCR'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
