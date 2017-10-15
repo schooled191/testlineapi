@@ -1,4 +1,12 @@
 <?php
-echo "1";
+
+// current time
+echo date('h:i:s') . "\n";
+
+// sleep for 10 seconds
 sleep(10);
-echo "2";
+
+// wake up !
+echo date('h:i:s') . "\n";
+
+?>
