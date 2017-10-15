@@ -18,7 +18,7 @@ if (!is_null($events['events'])) {
 
 			// Build message to reply back
 			$messages = [
-				'type' => 'image',
+				'type' => 'text',
 				'text' => $text
 				];
 
@@ -75,4 +75,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OKkub";
+echo "OK";
