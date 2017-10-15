@@ -10,9 +10,9 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
+		if ($event['type'] == 'message' && $event['message']['originalContentUrl'] == 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310') {
 			// Get text sent
-			$text = $event['message']['type'];
+			$text = $event['message']['originalContentUrl'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
