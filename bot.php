@@ -44,6 +44,7 @@ if (!is_null($events['events'])) {
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 			$text = $event['message']['text'];
 			// Get replyToken
+			sleep(30);
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
