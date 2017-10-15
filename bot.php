@@ -42,15 +42,15 @@ if (!is_null($events['events'])) {
 
 			echo $result . "\r\n";
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
-			$text = $event['message']['text'];
+			$text = $event['source']['userId'];
 			// Get replyToken
-			sleep(30);
+
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'กรุณาอัพโหลดไฟล์เอกสารภาพที่ต้องการทำ OCR'
+				'text' => '$text'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
