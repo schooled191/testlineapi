@@ -43,7 +43,6 @@ if (!is_null($events['events'])) {
 			echo $result . "\r\n";
 		} else if ($event['type'] == 'message' && $event['message']['type'] == 'text'){
 			$text = $event['message']['text'];
-			sleep(60);
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
@@ -75,4 +74,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "qq";
+echo "OK";
