@@ -19,9 +19,8 @@ if (!is_null($events['events'])) {
 			// Build message to reply back
 			$messages = [
 				'type' => 'image',
-				'originalContentUrl' => 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310',
-				'previewImageUrl' => 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310'
-			];
+				'text' => $text
+				];
 
 			// Make a POST Request to Messaging API to reply to sender
 			$url = 'https://api.line.me/v2/bot/message/reply';
