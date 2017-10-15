@@ -5,5 +5,4 @@ $arr  = Array(
                );
  
 echo json_encode($arr);
-sleep(10);
-echo "END";
+
