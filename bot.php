@@ -12,14 +12,14 @@ if (!is_null($events['events'])) {
 		// Reply only when message sent is in 'text' format
 		if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			// Get text sent
-			$text = $event['message']['text'];
+			$text = $event['message']['image'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
 				'type' => 'text',
-				'text' => 'ระบบกำลังแปลงภาพเป็นข้อความ ผลลัพธ์ที่ได้จะถูกส่งกลับทาง LINE ในอีก 2-3 นาทีหลังจากนี้ กรุณารอสักครู่...'
+				'text' => $text
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
