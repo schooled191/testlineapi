@@ -5,6 +5,7 @@ $access_token = 'OiFfXS/z6c3apamAsO/5EHnQtIbsw104XLcrFtUV+/wwF/3nd7h49zb/MzmR9QV
 $content = file_get_contents('php://input');
 // Parse JSON
 $events = json_decode($content, true);
+$response = "":
 // Validate parsed JSON data
 if (!is_null($events['events'])) {
 	// Loop through each event
@@ -15,6 +16,23 @@ if (!is_null($events['events'])) {
 			$text = $event['message']['text'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
+			$curl = curl_init();
+
+			curl_setopt_array($curl, array(
+			  CURLOPT_URL => "http://localhost/work/OCRBot/FormBotToserver.php",
+			  CURLOPT_RETURNTRANSFER => true,
+			  CURLOPT_ENCODING => "",
+			  CURLOPT_MAXREDIRS => 10,
+			  CURLOPT_TIMEOUT => 30,
+			  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			  CURLOPT_CUSTOMREQUEST => "GET",
+			  CURLOPT_HTTPHEADER => array(
+			    "cache-control: no-cache",
+			    "postman-token: 5cfa0d47-cfdf-2664-cc11-a67457b6e15a"
+			  ),
+			));
+
+			$response = curl_exec($curl);
 
 			// Build message to reply back
 			$messages = [
@@ -26,7 +44,7 @@ if (!is_null($events['events'])) {
 			$url = 'https://api.line.me/v2/bot/message/reply';
 			$data = [
 				'replyToken' => $replyToken,
-				'messages' => [$messages],
+				'messages' => [$response],
 			];
 			$post = json_encode($data);
 			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $access_token);
@@ -74,4 +92,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-echo "OK";
+echo "ok";
