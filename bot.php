@@ -10,16 +10,17 @@ if (!is_null($events['events'])) {
 	// Loop through each event
 	foreach ($events['events'] as $event) {
 		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['originalContentUrl'] == 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310') {
+		if ($event['type'] == 'message' && $event['message']['type'] == 'image') {
 			// Get text sent
-			$text = $event['message']['originalContentUrl'];
+			$text = $event['message']['id'];
 			// Get replyToken
 			$replyToken = $event['replyToken'];
 
 			// Build message to reply back
 			$messages = [
-				'type' => 'text',
-				'text' => $text
+				'type' => 'image',
+				'originalContentUrl' => 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310',
+				'previewImageUrl' => 'https://lh3.googleusercontent.com/NiTs_tzTMeOLFecnQXp5DFxqbtJCVeMhB5t7F7hAC9f2Kv0RRjtW41cT6AU9Ryk5lDw=h310'
 			];
 
 			// Make a POST Request to Messaging API to reply to sender
